@@ -1,0 +1,2037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ubaid Mushtaq</title>
+  <style>
+    
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Exo 2', sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000000;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-family: cursive;
+  font-size: 56px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ff00e4;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(255, 0, 228, 0.8);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin-right: 20px;
+  
+}
+
+.nav-links li {
+  margin: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #ffffff;
+  transition: 0.3s;
+  font-family: monospace;
+  font-size: 18px;
+  letter-spacing: 1px;
+  
+}
+
+.nav-links a:hover {
+  color: #ff00e4;
+  text-shadow: 2px #ff00e4 ;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.line {
+  width: 25px;
+  height: 3px;
+  background-color: #ffffff;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 768px) {
+  #blog{
+  padding-bottom: 5px;
+
+}
+  .nav-links {
+    margin: 20px -40px 30px 5000px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: #000000;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    transition: max-height 0.3s ease-in-out;
+    z-index: 1;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .nav-links li {
+    margin: 19px 0;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .open {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .nav-active {
+    max-height: 400px;
+  }
+}
+
+
+
+.home-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 120px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.home-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 64px;
+  font-weight: 500;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 10px;
+  opacity: 0; /* Hidden by default for animation */
+  transform: translateY(50px);
+  animation: fadeInUp 5s forwards 3s;
+}
+
+.home-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 30px;
+  opacity: 0; /* Hidden by default for animation */
+  transform: translateY(30px);
+  animation: fadeInUp 1s forwards 0.5s;
+}
+
+.home-description {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  max-width: 800px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  opacity: 0; /* Hidden by default for animation */
+  transform: translateY(30px);
+  animation: fadeInUp 1s forwards 0.7s;
+}
+
+/* CSS animation for fadeInUp effect */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Additional dynamic introduction effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.typing-animation {
+  border-right: 2px solid #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 2s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
+  color: #ff00e4;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+/* Animated color change for the home section */
+@keyframes changeColors {
+  0% {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  25% {
+    background-color: #1a1a1a;
+    color: #ff00e4;
+  }
+  50% {
+    background-color: #2a2a2a;
+    color: #ffca28;
+  }
+  75% {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  100% {
+    background-color: #000000;
+    color: #ffffff;
+  }
+}
+
+.logo {
+  animation: changeColors 10s infinite;
+  size: 3px;
+}
+
+.home-subtitle{
+  
+  animation: changeColors 15s infinite;
+  size: 5px;
+
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .home-title {
+    font-size: 48px;
+  }
+
+  .home-subtitle {
+    font-size: 24px;
+  }
+
+  .home-description {
+    font-size: 18px;
+  }
+
+  .typing-animation {
+    font-size: 18px;
+  }
+}
+.poem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.poem .home-description {
+  font-size: 20px;
+  max-width: 800px;
+  line-height: 1.6;
+  margin: 5px 0;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  /* Existing CSS for responsive design... */
+
+  .poem .home-description {
+    font-size: 18px;
+  }
+}
+
+
+
+
+
+
+
+.skills-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 0;
+  background-color: #1a1a1a;
+}
+
+.skills-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  color: #ff00e4;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 1s forwards 1s;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s forwards 1.5s;
+}
+
+.skill-card {
+  flex: 1;
+  background-color: #2a2a2a;
+  color: #ffffff;
+  padding: 30px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  text-align: center;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  animation: fadeInUp 1s;
+  cursor: pointer;
+}
+
+.skill-card:hover {
+  transform: scale(1.05);
+  background-color: #ff00e4;
+  box-shadow: 0 0 20px rgba(255, 0, 228, 0.4);
+}
+
+.skill-heading {
+  font-size: 32px;
+  font-weight: bold;
+  color: #ffca28;
+}
+
+.skill-description {
+  font-size: 20px;
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+/* Additional styling for small screen devices */
+@media screen and (max-width: 768px) {
+  .skill-card {
+    flex-basis: calc(50% - 20px);
+  }
+
+  .skills-container {
+    padding: 20px;
+  }
+
+  .skills-title {
+    font-size: 36px;
+  }
+
+  .skill-heading {
+    font-size: 28px;
+  }
+}
+
+
+.technologies-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 0;
+  background-color: #1a1a1a;
+  
+}
+
+.technologies-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  color: #ff00e4;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 1s forwards 1s;
+}
+
+.technologies-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s forwards 1.5s;
+ 
+}
+
+.technology-card {
+  flex-basis: calc(33.33% - 20px);
+  background-color: #2a2a2a;
+  color: #ffffff;
+  padding: 30px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  text-align: center;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  animation: fadeInUp 1s;
+  cursor: pointer;
+  
+
+}
+
+.technology-card:hover {
+  transform: scale(1.05);
+  background-color: #070107;
+  box-shadow: 0 0 20px rgba(255, 0, 228, 0.4);
+  
+}
+
+.technology-heading {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffca28;
+}
+
+.technology-description {
+  font-size: 20px;
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+/* Additional styling for small screen devices */
+@media screen and (max-width: 768px) {
+  .technology-card {
+    flex-basis: calc(50% - 20px);
+  }
+
+  .technologies-container {
+    padding: 20px;
+  }
+
+  .technologies-title {
+    font-size: 36px;
+  }
+
+  .technology-heading {
+    font-size: 24px;
+  }
+}
+
+.poem-tech {
+  display: none;
+  color: #000000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  text-align: left;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  animation: fadeInOut 0.5s;
+}
+
+
+
+
+.projects-section {
+  text-align: center;
+
+  background-color: black;
+  color: #e000cc;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.projects-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  color: #ff00e4;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 1s forwards 1s;
+}
+
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s forwards 1.5s;
+}
+
+.project-card {
+  flex-basis: calc(33.33% - 20px);
+  background-color:black;
+  color: #ffffff;
+  padding: 30px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  text-align: center;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  animation: fadeInUp 1s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+  background-color: black;
+  box-shadow: 0 0 20px rgba(255, 0, 228, 0.4);
+}
+
+.project-title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #ffca28;
+  margin-top: 20px;
+  flex-grow: 1;
+}
+
+.project-description {
+  font-size: 10px;
+  color: #ffffff;
+  line-height: 2 ;
+
+  flex-grow: 1;
+  font-family: cursive;
+  font-style: italic;
+}
+
+/* Additional styling for small screen devices */
+@media screen and (max-width: 768px) {
+  .project-card {
+    flex-basis: calc(50% - 20px);
+  }
+
+  .projects-container {
+    padding: 20px;
+  }
+
+  .projects-title {
+    font-size: 36px;
+  }
+
+  .project-title {
+    font-size: 24px;
+  }
+}
+
+.project-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.project-button {
+  padding: 12px 24px;
+  background-color: #ff00e4;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin: 5px;
+  width: 180px;
+}
+
+.project-button:hover {
+  background-color: #e000cc;
+}
+
+.view-more-button {
+  padding: 12px 24px;
+  background-color: #090d09;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 30px;
+  width: 220px;
+}
+
+.view-more-button:hover {
+  background-color: #0e120e;
+}
+
+.project-details {
+  display: none;
+}
+
+.active .project-details {
+  display: block;
+}
+
+.active .project-description {
+  margin-bottom: 20px;
+}
+
+
+
+
+
+/* Projects Section Styling */
+
+/* .projects-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 0;
+  background-color: #1a1a1a;
+} */
+
+.projects-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  color: #ff00e4;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 1s forwards 1s;
+}
+
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s forwards 1.5s;
+}
+
+.project-card {
+  flex-basis: calc(33.33% - 20px);
+  background-color: #2a2a2a;
+  color: #ffffff;
+  padding: 30px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  text-align: center;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  animation: fadeInUp 1s;
+  cursor: pointer;
+}
+
+.project-card.active {
+  flex-basis: 100%;
+}
+
+.project-card:not(.active) .project-details {
+  display: none;
+}
+
+.project-heading {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffca28;
+}
+
+/* .project-description {
+  font-size: 20px;
+  margin-top: 20px;
+  line-height: 1.6;
+} */
+
+.project-buttons {
+  margin-top: 20px;
+}
+
+.project-button {
+  font-family: cursive;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffca28;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.project-button:hover {
+  background-color: #ff00e4;
+  color: black;
+}
+
+.standout-button {
+  opacity: .5;
+  text-shadow: #ff00e4;
+  background-color: black;
+  color: #e000cc;
+  margin-top: 25px;
+
+
+}
+.standout-button:hover{
+  opacity: 2;
+  border-radius: 5px;
+  translate: transform -x 10px;
+
+}
+
+/* Additional styling for small screen devices */
+@media screen and (max-width: 768px) {
+  .project-card {
+    flex-basis: calc(50% - 20px);
+  }
+
+  .projects-container {
+    padding: 20px;
+  }
+
+  .projects-title {
+    font-size: 36px;
+  }
+
+  .project-heading {
+    font-size: 24px;
+  }
+}
+
+.poem-tech {
+  display: none;
+  color: #000000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  text-align: left;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  animation: fadeInOut 0.5s;
+}
+
+
+
+
+.about-section {
+  text-align: center;
+  padding: 80px 0;
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.about-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  color: #ff00e4;
+  margin-bottom: 20px;
+  font-weight: bolder;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-card {
+  flex-basis: 100%;
+  background-color: #2a2a2a;
+  color: #ffffff;
+  
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  text-align: center;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  cursor: pointer;
+  display: none;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  max-width: 600px;
+}
+
+.about-card.active {
+  display: block;
+}
+
+.about-heading {
+  font-size: 35px;
+  font-weight: bold;
+  color: #ffca28;
+  margin-top: 20px;
+}
+
+.about-description {
+  font-size: 17px;
+  line-height: 1;
+  margin-top: 20px;
+  font-family: cursive;
+  font-style: italic
+}
+
+/* Additional styling for small screen devices */
+@media screen and (max-width: 768px) {
+  .about-title {
+    font-size: 36px;
+  }
+
+  .about-heading {
+    font-size: 24px;
+  }
+}
+
+
+
+.contact-section {
+  text-align: center;
+  padding: 50px;
+}
+
+.contact-heading {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ff00e4;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 1s forwards 1s;
+}
+
+.contact-description {
+  font-size: 18px;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s forwards 1.5s;
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.contact-icon {
+  font-size: 50px;
+  color: #ff00e4;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.contact-icon:hover {
+  color: #00ffe4;
+  transform: scale(1.2);
+}
+
+.contact-label {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+}
+
+/* Additional styling for small screen devices */
+@media screen and (max-width: 768px) {
+  .contact-icon {
+    font-size: 40px;
+  }
+
+  .contact-heading {
+    font-size: 30px;
+  }
+
+  .contact-description {
+    font-size: 16px;
+  }
+}
+
+
+/* Blogs Section Styling */
+.blogs-section {
+  padding: 80px 0;
+  background-color: #1a1a1a;
+  text-align: center;
+}
+
+.blogs-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  color: #ff00e4;
+  margin-bottom: 40px;
+}
+
+.blogs-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.blog-card {
+  flex-basis: calc(33.33% - 20px);
+  background-color: #2a2a2a;
+  color: #ffffff;
+  padding: 30px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.blog-card:hover {
+  transform: scale(1.05);
+  background-color: #070107;
+  box-shadow: 0 0 20px rgba(255, 0, 228, 0.4);
+}
+
+.blog-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffca28;
+  margin-bottom: 20px;
+}
+
+.blog-content {
+
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 20px auto;
+  max-width: fit-content;
+  text-align: left;
+  background-color: black;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* Additional styling for small screen devices */
+@media screen and (max-width: 768px) {
+  .blog-card {
+    flex-basis: calc(50% - 20px);
+  }
+}
+
+
+.contact-form {
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      width: 80%;
+      max-width: 400px;
+      margin: 0 auto;
+      animation: fadeInUp 1s;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .contact-form:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-header {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ff00e4;
+    }
+
+    .input-container {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .input {
+      width: 100%;
+      padding: 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background-color: #f0f0f0;
+      color: #555;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .input::placeholder {
+      color: #ccc;
+    }
+
+    .input:focus {
+      outline: none;
+      background-color: #e0e0e0;
+    }
+
+    .input-label {
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+      font-size: 14px;
+      color: #888;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .input:focus + .input-label,
+    .input:not(:placeholder-shown) + .input-label {
+      top: 10px;
+      font-size: 12px;
+      color: #ff00e4;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #ff00e4;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #ff0080;
+    }
+
+    /* Animation for form appearance */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+ <!-- <script src="scripts.js"></script>
+  <link rel="stylesheet" href="styles.css"> -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      Ubaid
+    </div>
+    <div class="burger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home-section">Home</a></li>
+      <li><a href="#skills-section">Skills</a></li>
+      <li><a href="#technologies-section">Technologies</a></li>
+      <li><a href="#projects-section">Projects</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact-section">Contact</a></li>
+      <li><a href="#blogs-section">Blog</a></li>
+    </ul>
+  </nav>
+
+  <section id="home-section" class="home-section">
+    <h1 class="home-title">Welcome!</h1>
+    <p class="home-subtitle">Discover: A Learner and Developer</p>
+    <div class="poem">
+      <p class="home-description">
+        Hey there! I'm <br><span class="dynamic-intro typing-animation"></span>,<br>
+        A Software Engineer, an enthusiast I be,<br>
+        Tech's my realm, and code's my key,<br>
+        In the world of web, I love to see.
+      </p>
+    </div>
+    <div class="poem">
+      <p class="home-description">
+        Poems I'll write in lines of code,<br>
+        HTML, CSS, and more I'll load,<br>
+        A Full Stack Web Developer I'm known,<br>
+        Crafting sites with style, on my own.
+      </p>
+    </div>
+    <div class="poem">
+      <p class="home-description">
+        With React and Node, I'll make it shine,<br>
+        Embracing challenges, I'll define,<br>
+        The digital landscape, I'll innovate,<br>
+        Making ideas real, no need to wait.
+      </p>
+    </div>
+    <div class="poem">
+      <p class="home-description">
+        A learner, a dreamer, a coder's heart,<br>
+        Come join me now, let's create some art,<br>
+        In this journey together, we'll take flight,<br>
+        Exploring new heights, in the realm of light.
+      </p>
+    </div>
+  </section>
+
+
+
+  <section id="skills-section"  class="skills-section">
+    <h2 class="skills-title">Skills</h2>
+    <div class="skills-container">
+      <!-- Front End Development -->
+      <div class="skill-card">
+        <div class="skill-heading">Front End Development</div>
+        <div class="skill-description">
+          In the realm of code, where designs take flight,
+          Front-end wonders, my pixels ignite.
+          HTML, CSS, and JavaScript I wield,
+          Creating web interfaces, visually thrilled.
+       
+        </div>
+      </div>
+
+      <!-- Back End Development -->
+      <div class="skill-card">
+        <div class="skill-heading">Back End Development</div>
+        <div class="skill-description">
+          Behind the scenes, where databases reside,
+          Back-end alchemy, my programs preside.
+          With Node.js and servers, I ensure,
+          Smooth functioning, my code secure.
+        </div>
+      </div>
+
+      <!-- Full Stack Web Development -->
+      <div class="skill-card">
+        <div class="skill-heading">Full Stack Web Development</div>
+        <div class="skill-description">
+          Poetry of code, a dance divine,
+          HTML, CSS, JS, MERN combined.
+          With pixels and logic, the web I weave,
+          A full-stack creator, believe.
+        </div>
+      </div>
+
+      <!-- UI and UX Design -->
+      <div class="skill-card">
+        <div class="skill-heading">UI and UX Design</div>
+        <div class="skill-description">
+          User interfaces, a delightful spree,
+          Designing experiences, for you and me.
+          UX's heart, empathy my guide,
+          User-centric creations, I provide.
+        </div>
+      </div>
+
+      <!-- Android Development -->
+      <div class="skill-card">
+        <div class="skill-heading">Android Development</div>
+        <div class="skill-description">
+          Android realms, a world so vast,
+          Java and Kotlin, a power blast.
+          From UI to APIs, my craft,
+          Android apps, my legacy to last.
+        </div>
+      </div>
+
+      <!-- Game Development -->
+      <div class="skill-card">
+        <div class="skill-heading">Game Development</div>
+        <div class="skill-description">
+          Game worlds I conjure, stories to tell,
+          Unity and C#, my magic spell.
+          Characters dance, in worlds of art,
+          Game development, the beats of my heart.
+        </div>
+      </div>
+
+      <!-- Enthusiast Data Science -->
+      <div class="skill-card">
+        <div class="skill-heading">Enthusiast Data Science</div>
+        <div class="skill-description">
+          Data's symphony, I decode,
+          Python and R, my paths to explore.
+          Insights unravel, patterns I see,
+          Data science, the rhythm of me.
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="technologies-section" class="technologies-section">
+    <h2 class="technologies-title">Technologies</h2>
+    <div class="technologies-container">
+      <!-- Front End Development -->
+      <div class="technology-card" onclick="togglePoem('front-end')">
+        <div class="technology-heading">Front End Magic</div>
+        <div id="front-end" class="poem-tech">
+          Websites I craft, with magic and flair,
+          Front End Development, beyond compare.
+          HTML, the structure I lay,
+          CSS, the artist's brush in play.
+          With JavaScript, interactivity blooms,
+          A delightful user experience it resumes.
+        </div>
+      </div>
+
+      <!-- Back End Development -->
+      <div class="technology-card" onclick="togglePoem('back-end')" >
+        <div class="technology-heading">Back End Mastery</div>
+        <div id="back-end" class="poem-tech" >
+          Behind the scenes, where power resides,
+          Back End Development, the engine abides.
+          Node.js, the server-side's delight, 
+          Handling requests, swift as the night.
+          With Express.js, routes I define,
+          Bringing data and functionality in line.
+        </div>
+      </div>
+
+      <!-- Full Stack Web Development -->
+      <div class="technology-card" onclick="togglePoem('full-stack')">
+        <div class="technology-heading">Full Stack Enigma</div>
+        <div id="full-stack" class="poem-tech">
+          A holistic approach, I undertake,
+          Full Stack Web Development, no mistake.
+          Front end and back end, I embrace,
+          A seamless experience, I interlace.
+          From user interface to database store,
+          A complete web solution I explore.
+        </div>
+      </div>
+
+      <!-- UI and UX Design -->
+      <div class="technology-card" onclick="togglePoem('ui-ux')">
+        <div class="technology-heading">Design's Symphony</div>
+        <div id="ui-ux" class="poem-tech">
+          User-centered design, I hold dear,
+          UI and UX Design, crystal clear.
+          Colors, layouts, and interaction play,
+          An intuitive experience I convey.
+          From wireframes to prototypes, I create,
+          Design's symphony, a visual state.
+        </div>
+      </div>
+
+      <!-- Android Development -->
+      <div class="technology-card" onclick="togglePoem('android')">
+        <div class="technology-heading">Android Euphoria</div>
+        <div id="android" class="poem-tech">
+          In the Android world, I dive,
+          Android Development, where apps thrive.
+          Java and Kotlin, the languages I wield,
+          Creating apps, my creativity unsealed.
+          From utilities to games so grand,
+          In the realm of Android, I stand.
+        </div>
+      </div>
+
+      <!-- Game Development -->
+      <div class="technology-card" onclick="togglePoem('game-dev')">
+        <div class="technology-heading">Game Dev Symphony</div>
+        <div id="game-dev" class="poem-tech">
+          Games, an immersive world I create,
+          Game Development, where ideas elate.
+          Unity and C#, my tools to devise,
+          Characters, stories, and gameplay surprise.
+          Innovative mechanics, I design,
+          A symphony of experiences, divine.
+        </div>
+      </div>
+
+      <!-- Enthusiast Data Science -->
+      <div class="technology-card" onclick="togglePoem('data-science')">
+        <div class="technology-heading">Data's Universe</div>
+        <div id="data-science" class="poem-tech">
+          Data's universe, a vast expanse,
+          Data Science, where insights enhance.
+          Python and ML, my partners in quest,
+          Patterns and trends, I put to the test.
+          In the realm of data, I explore,
+          Enthusiast Data Scientist, forevermore.
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section id="projects-section" class="projects-section">
+    <h2 class="projects-section"> Projects</h2>
+    <div class="projects-container">
+
+      <div class="project-card" onclick="toggleProjectDetails(this)">
+        <h3 class="project-heading">Portfolio</h3>
+        <div class="project-details">
+          <p class="project-description">A showcase of my skills, a glimpse of me,<br>
+          My portfolio, the place to be.<br>
+          Projects I've built, and experiences to share,<br>
+          A journey through creativity, passion, and care.<br>
+          From web development to design and more,<br>
+          Here's a collection of what I adore.<br>
+          Take a look, explore with glee,<br>
+          My portfolio, a reflection of me.</p>
+          <div class="project-buttons">
+            <a href="#" class="project-button" onclick="redirectToProject('#')">Visit Project</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="toggleProjectDetails(this)">
+        <h3 class="project-heading">E-Commerce WebApp</h3>
+        <div class="project-details">
+          <p class="project-description">Shop till you drop, from the comfort of home,<br>
+          An E-Commerce WebApp, no need to roam.<br>
+          Products galore, a virtual bazaar,<br>
+          Browse with ease, near and far.<br>
+          Secure payments and user delight,<br>
+          A shopping experience that feels just right.<br>
+          From clothing to gadgets, it's a shopping spree,<br>
+          Welcome to the world of online shopping glee.</p>
+          <div class="project-buttons">
+            <a href="#" class="project-button" onclick="redirectToProject('#')">Visit Project</a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="project-card" onclick="toggleProjectDetails(this)">
+        <h3 class="project-heading">SocialHub</h3>
+        <div class="project-details">
+          <p class="project-description">Connections and stories, in a digital space,<br>
+          SocialHub, a community, a lively embrace.<br>
+          Share your thoughts, post your views,<br>
+          Engage with others, no matter the hues.<br>
+          From photos to articles, it's a delightful scroll,<br>
+          Where hearts and minds, connect and enroll.<br>
+          Be a part of conversations, open and free,<br>
+          SocialHub, the place where you want to be.</p>
+          <div class="project-buttons">
+            <a href="#" class="project-button" onclick="redirectToProject('#')">Visit Project</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="toggleProjectDetails(this)">
+        <h3 class="project-heading">TechTrends Blog</h3>
+        <div class="project-details">
+          <p class="project-description">In the world of tech, where innovation thrives,<br>
+          TechTrends Blog, a place for tech-savvy lives.<br>
+          Latest updates and insights galore,<br>
+          Dive into the world of tech, explore and adore.<br>
+          From gadgets to AI, and everything in between,<br>
+          A tech enthusiast's paradise, so keen.<br>
+          Join the tech revolution, set the speed,<br>
+          TechTrends Blog, the tech enthusiasts' lead.</p>
+          <div class="project-buttons">
+            <a href="#" class="project-button" onclick="redirectToProject('#')">Visit Project</a>
+          </div>
+        </div>
+      </div>
+
+      
+
+      <div class="project-card" onclick="toggleProjectDetails(this)">
+        <h3 class="project-heading">Project HealthHub</h3>
+        <div class="project-details">
+          <p class="project-description">HealthHub, your companion for well-being,<br>
+          Where health and fitness come with meaning.<br>
+          Track your progress, achieve your goal,<br>
+          A holistic approach, mind, body, and soul.<br>
+          A community of health enthusiasts strong,<br>
+          Together, we inspire, motivate, and belong.<br>
+          Embrace wellness, a life so grand,<br>
+          With HealthHub, in health, we firmly stand.</p>
+          <div class="project-buttons">
+            <a href="#" class="project-button" onclick="redirectToProject('#')">Visit Project</a>
+          </div>
+        </div>
+      </div> 
+
+    </div>
+
+    <div class ="standout-button">
+      <a href="#" class="project-button" onclick="redirectToProject('#')">Visit Project-6</a>
+    </div>
+
+    <div class ="standout-button">
+      <a href="#" class="project-button" onclick="redirectToProject('#')">Visit Project-7</a>
+    </div>
+
+    <div class ="standout-button">
+      <a href="#" class="project-button" onclick="redirectToProject('#')">Visit Project-8</a>
+    </div>
+
+    <div class ="standout-button">
+      <a href="#" class="project-button" onclick="redirectToProject('#')">Visit Project-9</a>
+    </div>
+    <div class ="standout-button">
+      <a href="#" class="project-button" onclick="redirectToProject('#')">Visit Project-10</a>
+    </div>
+  </section>
+
+
+
+
+  <section class="about-section" id="about">
+    <h2 class="about-title">About Me</h2>
+    <div class="about-container">
+      <!-- Visible card with basic details -->
+      <div class="about-card active" onclick="toggleNextCardContent()" onmouseover="pauseAutoToggle()" onmouseout="resumeAutoToggle()">
+        <div class="about-heading">Ubaid Mushtaq</div>
+        <div class="about-description">
+          <p>I come from the picturesque valleys of Kashmir,</p>
+          <p>Pursuing Bachelor in Computer Applications, I dare.</p>
+          <p>With a passion for tech, I thrive,</p>
+          <p>Mastered web development, where dreams come alive.</p>
+          <p>Front-end and Back-end, both are my pride,</p>
+          <p>Creating seamless experiences, taking it in stride.</p>
+          <p>In the realm of data and AI, I dive deep,</p>
+          <p>Extracting insights, where patterns creep.</p>
+        </div>
+      </div>
+
+      <!-- Other cards with additional content -->
+      <div class="about-card" onclick="toggleNextCardContent()" onmouseover="pauseAutoToggle()" onmouseout="resumeAutoToggle()">
+        <div class="about-heading">Hobbies and Interests</div>
+        <div class="about-description">
+          <p>When not coding, I love to explore,</p>
+          <p>Hiking in nature, a passion I adore.</p>
+          <p>Photography and art, I find bliss,</p>
+          <p>Capturing moments, I never miss.</p>
+          <p>Books and music, my escape,</p>
+          <p>Imagination's world, no rules to reshape.</p>
+          <p>Exploring new cuisines, I'm fond,</p>
+          <p>Tasting flavors from places beyond.</p>
+        </div>
+      </div>
+
+      <div class="about-card" onclick="toggleNextCardContent()" onmouseover="pauseAutoToggle()" onmouseout="resumeAutoToggle()">
+        <div class="about-heading">Dreams and Aspirations</div>
+        <div class="about-description">
+          <p>In this tech-savvy world, I strive,</p>
+          <p>To create innovations that'll thrive.</p>
+          <p>A startup visionary, I yearn to be,</p>
+          <p>Bringing ideas to life, setting them free.</p>
+          <p>Empowering communities, making a change,</p>
+          <p>Impactful solutions, my mission's range.</p>
+          <p>Building a better world through tech,</p>
+          <p>Connecting minds, solutions we'll trek.</p>
+        </div>
+      </div>
+
+      <div class="about-card" onclick="toggleNextCardContent()" onmouseover="pauseAutoToggle()" onmouseout="resumeAutoToggle()">
+        <div class="about-heading">Skills and Expertise</div>
+        <div class="about-description">
+          <p>Front-end magic, I wield with grace,</p>
+          <p>HTML, CSS, and JS, my base.</p>
+          <p>Back-end mastery, the engine abides,</p>
+          <p>Node.js and Express.js, where power resides.</p>
+          <p>Data Science enthusiast, patterns I discern,</p>
+          <p>Python and ML, my skills I churn.</p>
+          <p>Android aficionado, apps I create,</p>
+          <p>Java and Kotlin, my tools so great.</p>
+          <p>Game Development, an immersive sphere,</p>
+          <p>Unity and C#, my stories premiere.</p>
+          <p>UI/UX Design, where creativity flies,</p>
+          <p>Colors, layouts, and interactions, I customize.</p>
+        </div>
+      </div>
+
+      <div class="about-card" onclick="toggleNextCardContent()" onmouseover="pauseAutoToggle()" onmouseout="resumeAutoToggle()">
+        <div class="about-heading">Let's Connect</div>
+        <div class="about-description">
+          <p>If you'd like to collaborate or explore,</p>
+          <p>Feel free to reach out, let's open the door.</p>
+          <p>Together we can build and create,</p>
+          <p>A world of innovation, let's innovate.</p>
+          <p>Drop me a message, an email, or a line,</p>
+          <p>Let's make ideas and dreams intertwine.</p>
+          <p>Exciting ventures await, so bright,</p>
+          <p>Let's shape the future with our might.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <div id="contact-section" class="contact-section">
+    <h2 class="contact-heading">Contact Me</h2>
+    <p class="contact-description">If you wish to connect and stay in touch,</p>
+    <p class="contact-description">Here are the ways you can reach me much.</p>
+
+    <div class="contact-icons">
+      <!-- Phone Number -->
+      <div>
+        <a href="tel:+1234567890" class="contact-icon" target="_blank">
+          <i class="fas fa-phone"></i>
+        </a>
+        <p class="contact-label">Phone</p>
+      </div>
+
+      <!-- Email -->
+      <div>
+        <a href="mailto:example@example.com" class="contact-icon" target="_blank">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <p class="contact-label">Email</p>
+      </div>
+
+      <!-- GitHub -->
+      <div>
+        <a href="https://github.com/your-github-username" class="contact-icon" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+        <p class="contact-label">GitHub</p>
+      </div>
+
+      <!-- LinkedIn -->
+      <div>
+        <a href="https://www.linkedin.com/in/your-linkedin-username" class="contact-icon" target="_blank">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <p class="contact-label">LinkedIn</p>
+      </div>
+
+      <!-- Fiverr -->
+      <div>
+        <a href="https://www.fiverr.com/your-fiverr-username" class="contact-icon" target="_blank">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+        <p class="contact-label">Fiverr</p>
+      </div>
+
+      <!-- Facebook -->
+      <div>
+        <a href="https://www.facebook.com/your-facebook-username" class="contact-icon" target="_blank">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <p class="contact-label">Facebook</p>
+      </div>
+
+      <!-- Instagram -->
+      <div>
+        <a href="https://www.instagram.com/your-instagram-username" class="contact-icon" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <p class="contact-label">Instagram</p>
+      </div>
+
+      <!-- Twitter -->
+      <div>
+        <a href="https://twitter.com/your-twitter-username" class="contact-icon" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <p class="contact-label">Twitter</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <div class="contact-header">Leave a Message</div>
+    <form>
+      <div class="input-container">
+        <input class="input" type="text" placeholder=" " required>
+        <label class="input-label">First Name*</label>
+      </div>
+      <div class="input-container">
+        <input class="input" type="text" placeholder=" " required>
+        <label class="input-label">Last Name*</label>
+      </div>
+      <div class="input-container">
+        <input class="input" type="email" placeholder=" " required>
+        <label class="input-label">Email*</label>
+      </div>
+      <div class="input-container">
+        <textarea class="input" minlength="100" placeholder=" " required></textarea>
+        <label class="input-label">Your Message*</label>
+      </div>
+      <button class="button-btn">Send</button>
+    </form>
+  </div>
+
+
+  <section id="blogs-section" class="blogs-section">
+    <h2 class="blogs-title">Blogs</h2>
+    <div class="blogs-container" id="blogs-container">
+      <!-- Blog Card 1 -->
+      <div class="blog-card" onclick="toggleBlogContent(1)">
+        <h3 class="blog-title">Mastering Frontend Development</h3>
+        <div class="blog-content" id="blog-content-1" style="display:none">
+          <p>
+            In this blog, I share my journey of mastering frontend development, from HTML and CSS to JavaScript and React.
+            <!-- Add more content points here -->
+          </p>
+        </div>
+      </div>
+      
+      <!-- Blog Card 2 -->
+      <div class="blog-card" onclick="toggleBlogContent(2)">
+        <h3 class="blog-title">Becoming a Full Stack Web Developer</h3>
+        <div class="blog-content" id="blog-content-2" style="display:none">
+          <p>
+            Learn about my experience transitioning from a frontend developer to a full stack web developer and the technologies I've explored.
+            <!-- Add more content points here -->
+          </p>
+        </div>
+      </div>
+      
+      <!-- Blog Card 3 -->
+      <div class="blog-card" onclick="toggleBlogContent(3)">
+        <h3 class="blog-title">Creating Stunning UI/UX Designs</h3>
+        <div class="blog-content" id="blog-content-3" style="display:none">
+          <p>
+            Discover the principles and techniques behind creating captivating UI/UX designs and how they enhance user experience.
+            <!-- Add more content points here -->
+          </p>
+        </div>
+      </div>
+      
+      <!-- Blog Card 4 -->
+      <div class="blog-card" onclick="toggleBlogContent(4)">
+        <h3 class="blog-title">Android Development Adventures</h3>
+        <div class="blog-content" id="blog-content-4" style="display:none">
+          <p>
+            Join me on my Android development journey as I explore the world of Java and Kotlin to build innovative and user-friendly apps.
+            <!-- Add more content points here -->
+          </p>
+        </div>
+      </div>
+      
+      <!-- Blog Card 5 -->
+      <div class="blog-card" onclick="toggleBlogContent(5)">
+        <h3 class="blog-title">Data Science: Unveiling Insights</h3>
+        <div class="blog-content" id="blog-content-5" style="display:none">
+          <p>
+            Dive into the world of data science, where I harness the power of Python and Machine Learning to extract valuable insights from data.
+            
+Data Science is an interdisciplinary field that combines various techniques, tools, and methodologies to extract valuable insights and knowledge from data. It involves a process of collecting, cleaning, analyzing, and interpreting large datasets to uncover patterns, trends, and hidden relationships that can drive informed decision-making and provide valuable insights to businesses, organizations, and researchers.
+
+The Data Science process typically involves the following steps:
+
+Data Collection: Gathering relevant data from various sources, such as databases, APIs, websites, sensors, or other data repositories.
+
+Data Cleaning and Preprocessing: This step involves removing errors, inconsistencies, and irrelevant information from the data to ensure its quality and reliability for analysis.
+
+Data Exploration and Visualization: Exploring the data through summary statistics and data visualizations to gain initial insights and identify patterns or trends that might be present.
+
+Data Modeling: Applying various statistical and machine learning algorithms to build predictive models or uncover hidden structures within the data.
+
+Model Training and Evaluation: Training the chosen models on the data and assessing their performance to select the best-performing one.
+
+Interpretation and Insights: Analyzing the results obtained from the models and interpreting them to gain actionable insights and answer specific questions or solve particular problems.
+
+Data Science is used in various domains, including but not limited to:
+
+Business Analytics: Predicting customer behavior, optimizing marketing strategies, and identifying opportunities for business growth.
+
+Healthcare: Analyzing patient data to improve diagnosis, treatment, and patient outcomes.
+
+Finance: Predicting stock prices, fraud detection, and risk assessment.
+
+Natural Language Processing (NLP): Understanding and generating human language, powering chatbots, sentiment analysis, etc.
+
+Image and Video Analysis: Analyzing images and videos for object recognition, facial recognition, and autonomous vehicles.
+
+Environmental Science: Analyzing climate data, predicting natural disasters, and environmental monitoring.
+
+The tools and technologies used in Data Science vary depending on the specific tasks and data at hand. Some common programming languages include Python and R, while popular libraries like Pandas, NumPy, scikit-learn, TensorFlow, and PyTorch facilitate data manipulation and machine learning tasks.
+
+Data Science plays a vital role in data-driven decision-making and has become increasingly crucial in today's data-rich world. It empowers businesses and organizations to make more informed choices, gain a competitive edge, and find innovative solutions to complex problems.
+            <!-- Add more content points here -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    function toggleBlogContent(blogNumber) {
+       const blogContent = document.getElementById("blog-content-" + blogNumber);
+       const blogs = document.getElementsByClassName("blog-content");
+       for (const blog of blogs) {
+         blog.style.display = "none";
+       }
+       blogContent.style.display = "block";
+     }
+ 
+ 
+  // JavaScript code here
+ 
+  const contactHeading = document.querySelector(".contact-heading");
+     const contactDescription = document.querySelectorAll(".contact-description");
+     const contactIcons = document.querySelectorAll(".contact-icon");
+     const contactLabels = document.querySelectorAll(".contact-label");
+ 
+     contactHeading.style.opacity = 1;
+     contactHeading.style.transform = "translateY(0)";
+ 
+     setTimeout(() => {
+       contactDescription.forEach((description, index) => {
+         description.style.opacity = 1;
+         description.style.transform = "translateY(0)";
+         contactIcons[index].style.opacity = 1;
+         contactIcons[index].style.transform = "translateY(0)";
+         contactLabels[index].style.opacity = 1;
+         contactLabels[index].style.transform = "translateY(0)";
+       });
+     }, 1000);
+ 
+ 
+ 
+ 
+ 
+ let currentCardIndex = 0;
+       const aboutCards = document.querySelectorAll(".about-card");
+ 
+       function toggleNextCardContent() {
+         aboutCards[currentCardIndex].classList.remove("active");
+         currentCardIndex = (currentCardIndex + 1) % aboutCards.length;
+         aboutCards[currentCardIndex].classList.add("active");
+       }
+ 
+       function autoToggleNextCardContent() {
+         toggleNextCardContent();
+         setTimeout(autoToggleNextCardContent, 30000); // Automatically change after 5 seconds
+       }
+ 
+       autoToggleNextCardContent();
+ 
+ 
+ 
+     const navbar = document.querySelector('.navbar');
+     const burger = document.querySelector('.burger');
+     const navLinks = document.querySelector('.nav-links');
+ 
+     function toggleMenu() {
+       navLinks.classList.toggle('nav-active');
+       burger.classList.toggle('open');
+     }
+ 
+     burger.addEventListener('click', toggleMenu);
+ 
+     // Close the mobile menu when a navigation link is clicked
+     navLinks.addEventListener('click', () => {
+       if (window.innerWidth <= 768) {
+         setTimeout(() => {
+           toggleMenu();
+         }, 300); // Hide menu after 0.3 seconds delay
+       }
+     });
+ 
+     // Resize event listener to close the mobile menu on window resize
+     window.addEventListener('resize', () => {
+       if (window.innerWidth > 768 && navLinks.classList.contains('nav-active')) {
+         toggleMenu();
+       }
+     });
+ 
+     // Fix the navbar and burger on scroll
+     window.addEventListener('scroll', () => {
+       if (window.scrollY > 0) {
+         navbar.classList.add('fixed');
+       } else {
+         navbar.classList.remove('fixed');
+       }
+     });
+ 
+     // Hide the burger icon for large screens
+     window.addEventListener('resize', () => {
+       if (window.innerWidth > 768) {
+         burger.style.display = 'none';
+         navLinks.classList.remove('nav-active'); // Close the mobile menu on resize
+       } else {
+         burger.style.display = 'block';
+       }
+     });
+     const homeTitle = document.querySelector(".home-title");
+     const homeSubtitle = document.querySelector(".home-subtitle");
+     const homeDescription = document.querySelector(".home-description");
+     const homeButton = document.querySelector(".home-button");
+ 
+     // Function to reveal the elements with delay for live-writing effect
+     function revealElements() {
+       setTimeout(() => {
+         homeTitle.style.opacity = "1";
+         homeTitle.style.transform = "translateY(0)";
+       }, 300);
+       setTimeout(() => {
+         homeSubtitle.style.opacity = "1";
+         homeSubtitle.style.transform = "translateY(0)";
+       }, 500);
+       setTimeout(() => {
+         homeDescription.style.opacity = "1";
+         homeDescription.style.transform = "translateY(0)";
+       }, 700);
+       setTimeout(() => {
+         homeButton.style.opacity = "1";
+         homeButton.style.transform = "translateY(0)";
+       }, 900);
+     }
+ 
+     // Call the function on page load
+     window.addEventListener("load", revealElements);
+ 
+ 
+ 
+     // JavaScript for dynamic introduction with typing animation
+ const introTexts = ["Ubaid Mushtaq", "a Software Engineer", "a Full Stack Web Developer", "an Enthusiastic Learner"];
+ const typingAnimation = document.querySelector(".typing-animation");
+ let currentIndex = 0;
+ 
+ function typeText(text, element) {
+   let charIndex = 0;
+   const typingSpeed = 100; // Adjust typing speed here (lower value means faster typing)
+ 
+   function type() {
+     if (charIndex < text.length) {
+       element.textContent += text.charAt(charIndex);
+       charIndex++;
+       setTimeout(type, typingSpeed);
+     } else {
+       setTimeout(erase, 2000);
+     }
+   }
+ 
+   function erase() {
+     if (charIndex > 0) {
+       element.textContent = text.substring(0, charIndex - 1);
+       charIndex--;
+       setTimeout(erase, typingSpeed / 2);
+     } else {
+       currentIndex = (currentIndex + 1) % introTexts.length;
+       setTimeout(() => typeText(introTexts[currentIndex], element), 500);
+     }
+   }
+ 
+   type();
+ }
+ 
+ window.addEventListener("load", () => {
+   // Animate the title and subtitle on page load
+   document.querySelector(".home-title").style.animationPlayState = "running";
+   document.querySelector(".home-subtitle").style.animationPlayState = "running";
+ 
+   // Start the dynamic introduction typing animation
+   typeText(introTexts[currentIndex], typingAnimation);
+ });
+ 
+ const homeSection = document.querySelector(".home-section");
+ 
+ function adjustPoemSize() {
+   const poemSections = document.querySelectorAll(".poem");
+   const windowWidth = window.innerWidth;
+   const maxWidthForPoem = 800; // Adjust this value as needed
+ 
+   if (windowWidth <= maxWidthForPoem) {
+     // Reduce padding for smaller screens to fit the poem
+     homeSection.style.padding = "60px";
+     poemSections.forEach(poem => {
+       poem.style.margin = "10px 0";
+     });
+   } else {
+     // Reset padding and margins for larger screens
+     homeSection.style.padding = "120px";
+     poemSections.forEach(poem => {
+       poem.style.margin = "20px 0";
+     });
+   }
+ }
+ 
+ window.addEventListener("load", adjustPoemSize);
+ window.addEventListener("resize", adjustPoemSize);
+ 
+ 
+ 
+ 
+ let activePoem = null;
+ 
+ function togglePoem(technology) {
+   const poem = document.getElementById(technology);
+ 
+   if (activePoem !== null && activePoem !== poem ) {
+     activePoem.style.display = "none";
+   }
+ 
+   if (poem.style.display === "block") {
+     poem.style.display = "none";
+     activePoem = null;
+   } else {
+     poem.style.display = "block";
+     activePoem = poem;
+     typePoem(poem);
+   }
+ }
+ 
+ function typePoem(poem) {
+   const text = poem.innerHTML;
+   poem.innerHTML = "";
+   let charIndex = 0;
+   const typingSpeed = 65; // Adjust typing speed here (lower value means faster typing)
+ 
+   function type() {
+     if (charIndex < text.length) {
+       poem.innerHTML += text.charAt(charIndex);
+       charIndex++;
+       setTimeout(type, typingSpeed);
+     }
+   
+   }
+  type();
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+     // Projects data (You can replace these placeholder images and descriptions with your actual projects)
+   
+     // Function to display project details
+     function showDetails(projectId) {
+       const project = projectsData.find((project) => project.id === projectId);
+ 
+       // Display project details (you can use a modal or any other method)
+       console.log('Showing details for project: ' + project.title);
+       console.log('Description: ' + project.description);
+       console.log('Link: ' + project.link);
+     }
+ 
+     // Function to create project cards and add them to the DOM
+     function createProjectCard(project) {
+       const projectCard = document.createElement('div');
+       projectCard.classList.add('project-card');
+       projectCard.onclick = () => showDetails(project.id);
+ 
+       const projectImage = document.createElement('img');
+       projectImage.src = project.image;
+       projectImage.alt = project.title;
+       projectImage.classList.add('project-image');
+       projectCard.appendChild(projectImage);
+ 
+       const projectInfo = document.createElement('div');
+       projectInfo.classList.add('project-info');
+ 
+       const projectTitle = document.createElement('div');
+       projectTitle.classList.add('project-title');
+       projectTitle.textContent = project.title;
+       projectInfo.appendChild(projectTitle);
+ 
+       const projectDescription = document.createElement('div');
+       projectDescription.classList.add('project-description');
+       projectDescription.textContent = project.description;
+       projectInfo.appendChild(projectDescription);
+ 
+       const projectButtons = document.createElement('div');
+       projectButtons.classList.add('project-buttons');
+ 
+       const viewButton = document.createElement('button');
+       viewButton.classList.add('project-button');
+       viewButton.textContent = 'View Project';
+       viewButton.onclick = () => window.location.href = project.link;
+       projectButtons.appendChild(viewButton);
+ 
+       projectInfo.appendChild(projectButtons);
+       projectCard.appendChild(projectInfo);
+ 
+       return projectCard;
+     }
+ 
+     // Function to add project cards to the DOM
+     function renderProjects() {
+       const projectsContainer = document.querySelector('.projects-container');
+       projectsData.forEach((project) => {
+         const projectCard = createProjectCard(project);
+         projectsContainer.appendChild(projectCard);
+       });
+     }
+ 
+     // Function to handle "View More Projects" button click (Add your implementation here)
+     function handleViewMoreClick() {
+       console.log('View More Projects button clicked!');
+       // Add your logic to navigate to other project pages or load more projects.
+     }
+ 
+     // Call the function to render project cards on page load
+     renderProjects();
+ 
+     // Add event listener to the "View More Projects" button
+     const viewMoreButton = document.querySelector('.view-more-button');
+     viewMoreButton.addEventListener('click', handleViewMoreClick);
+ 
+     function toggleProjectDetails(card) {
+       const projectCards = document.querySelectorAll('.project-card');
+       projectCards.forEach((c) => {
+         if (c !== card && c.classList.contains('active')) {
+           c.classList.remove('active');
+         }
+       });
+       card.classList.toggle('active');
+     }
+ 
+     function redirectToProject(url) {
+       window.location.href = url;
+     }
+ 
+     function showMoreProjects() {
+       // Add code here to show more projects or navigate to another page
+     }
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+   </script>
+  
+</body>
+</html>
