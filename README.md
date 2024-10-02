@@ -29,15 +29,15 @@ A contact section with animated icons that change color and scale on hover, maki
 
 **Blog Section:**
 A blog section with cards that expand to show content, allowing the developer to share insights and updates.
-Consistent Theming and Styling:
 
+**Consistent Theming and Styling:**
 Consistent use of colors, fonts, and animations across the website, creating a cohesive and professional look.
 
 **Technical Highlights**:
 
-Pure **HTML, CSS, and JS**: Showcasing my proficiency in core web technologies without relying on frameworks or libraries.
-Responsive Design: Implemented media queries to ensure optimal viewing on all devices, from desktops to smartphones.
-Performance Optimization: Ensured fast loading times through optimized images and minimized CSS and JavaScript files.
+Pure **HTML, CSS, and JS**: Showcasing the proficiency of core web technologies without relying on frameworks or libraries.
+**Responsive Design:** Implemented media queries to ensure optimal viewing on all devices, from desktops to smartphones.
+**Performance Optimization:** Ensured fast loading times through optimized images and minimized CSS and JavaScript files.
 
-**And special thanks to the organizers of #front-end-frenzy https://github.com/Dev-Wizards/front-end-frenzy for motivating me for this front end project.**
+**And special thanks to the organizers of #front-end-frenzy https://github.com/Dev-Wizards/front-end-frenzy for motivating me for this front end project. And helping me to regrasp the core web stack**
 
