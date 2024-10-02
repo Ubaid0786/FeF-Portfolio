@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   padding: 0;
@@ -330,6 +331,10 @@ body {
   font-size: 20px;
   margin-top: 20px;
   line-height: 1.6;
+}
+
+.highlight {
+  color: #ffca28;
 }
 
 /* Additional styling for small screen devices */
