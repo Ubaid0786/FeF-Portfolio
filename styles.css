@@ -195,11 +195,11 @@ body {
     color: #ffffff;
   }
   25% {
-    background-color: #1a1a1a;
+    background-color: #000000;
     color: #ff00e4;
   }
   50% {
-    background-color: #2a2a2a;
+    background-color: #000000;
     color: #ffca28;
   }
   75% {
