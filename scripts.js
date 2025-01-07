@@ -1,4 +1,4 @@
-// Function to toggle blog content visibility
+
 function toggleBlogContent(blogNumber) {
   const blogContent = document.getElementById("blog-content-" + blogNumber);
   const blogs = document.getElementsByClassName("blog-content");
